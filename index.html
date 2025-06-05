@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-key="pageTitle">Sanatın Yorumlanması – Ana Sayfa</title>
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: inline-block;
+        }
+
+        .navbar li {
+            float: left;
+        }
+
+        .navbar li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        .navbar li a:hover {
+            background-color: #575757;
+        }
+
+        /* Header Styles */
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #fff;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            max-width: 900px;
+            margin: 20px auto;
+        }
+
+        header h1 {
+            color: #555;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: #777;
+            font-size: 1.1em;
+        }
+
+        /* Container for Main Content (Tables) */
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Headings within Container */
+        .container h1, .container h2 {
+            color: #555;
+            text-align: center;
+            margin-top: 0;
+        }
+
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background-color: #e2e2e2;
+            font-weight: bold;
+        }
+
+        /* Image Styles within Table */
+        .table-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 4px;
+        }
+
+        .image-container {
+            text-align: center;
+        }
+
+        /* Description Text Styles */
+        .description {
+            line-height: 1.6;
+        }
+        
+        /* Language Switcher Style */
+        #language-switcher {
+            margin: 15px 20px;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            float: right; /* Dil seçiciyi sağa yasla */
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html" data-key="navHome">Ana Sayfa</a></li>
+            <li><a href="quiz.html" data-key="navQuiz">Duygunu Seç</a></li>
+            <li><a href="ai.html" data-key="navAi">Sanatçı mı AI mı?</a></li>
+            <li><a href="canvas.html" data-key="navCanvas">Kendi Sanatın</a></li>
+        </ul>
+    </nav>
+
+    <div style="width: 100%; overflow: hidden;">
+        <select id="language-switcher">
+            <option value="tr">Türkçe</option>
+            <option value="en">English</option>
+            <option value="nl">Nederlands</option>
+            <option value="az">Azərbaycanca</option>
+            <option value="ru">Русский</option>
+        </select>
+    </div>
+
+    <header>
+        <h1 data-key="headerTitle">Sanat her gözde farklı bir anlam taşır.</h1>
+        <p data-key="headerParagraph">Bu sitede sanatın derinliklerine iniyoruz. Renkten niyete, dönemden izleyiciye.</p>
+    </header>
+
+    <div class="container">
+        <h1 data-key="containerTitle">Sanat Sayfam</h1>
+        <h2 data-key="containerSubtitle">Tablolar ve Açıklamaları</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th data-key="tableHeaderArtworkName">Eser Adı</th>
+                    <th data-key="tableHeaderVisual">Görsel</th>
+                    <th data-key="tableHeaderDescription">Açıklama</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-key="potatoEatersTitle">Patates Yiyenler</td>
+                    <td class="image-container">
+                        <img src="https://cdn.wannart.com/production/post/patates-yiyenler-birseyleri-icerlemisler-Dg65l.jpg" alt="Patates Yiyenler Tablosu" class="table-image">
+                    </td>
+                    <td class="description" data-key="potatoEatersDesc">
+                        Van Gogh’un erken dönem eserlerinden biri olan Patates Yiyenler, yoksul bir köylü ailesinin sade akşam yemeğini konu alır. Sanatçı, köylü yaşamının zorluklarını ve emeğin gerçekliğini vurgulamak istemiştir. Kasvetli tonlar, sert yüz hatları ve basit ortam; tablonun dramatik ve dürüst doğasını güçlendirir. Van Gogh’a göre bu insanlar "elleriyle ektikleri patatesi, aynı ellerle yiyorlar." Bu eser, onun insan emeğine duyduğu derin saygının güçlü bir yansımasıdır.
+                    </td>
+                </tr>
+                <tr>
+                    <td data-key="theKissTitle">Öpücük</td>
+                    <td class="image-container">
+                        <img src="https://www.arttablo.com/upload/U-gustav-klimt-opucuk-yagli-boya-klasik-sanat-kanvas-tablo1467029730-800.jpg" alt="Gustav Klimt Öpücük Tablosu" class="table-image">
+                    </td>
+                    <td class="description" data-key="theKissDesc">
+                        Gustav Klimt’in en ikonik eseri Öpücük (1907-1908), aşkın ve tutkunun yüceltilmiş bir ifadesidir. Altın varaklarla süslü bu tablo, birbirine sarılmış bir çiftin zamansız ve neredeyse kutsal bir anını betimler. Figürler gerçeklikten çok bir rüyayı andırır; arka plan soyut ve zamansızdır. Kadın figür teslimiyet içinde, erkek figür ise sevgiyle eğilmiş durumdadır. Klimt’in Art Nouveau stilini doruğa taşıyan bu eser, hem erotik hem de ruhani bir birlikteliğin simgesidir.
+                    </td>
+                </tr>
+                <tr>
+                    <td data-key="nighthawksTitle">Gece Kuşları</td>
+                    <td class="image-container">
+                        <img src="https://www.karnavalesk.com/wp-content/uploads/2022/10/Nighthawks_by_Edward_Hopper_1942-1024x559.jpg" alt="Edward Hopper Gece Kuşları Tablosu" class="table-image">
+                    </td>
+                    <td class="description" data-key="nighthawksDesc">
+                        **Gece Kuşları**, gecenin geç saatlerinde bir Amerikan diner’ında oturan dört kişinin sessizliğini resmeder. Hopper, modern yaşamın yalnızlığını, yabancılaşmayı ve kent hayatının içsel boşluğunu çarpıcı bir şekilde yansıtır. Soğuk yapay ışık, dışarıdaki karanlıkla keskin bir tezat oluşturur. Figürler aynı mekânda olsalar da birbirlerine temas etmez; her biri kendi iç dünyasına gömülmüştür. Bu eser, 20. yüzyılın şehirli insanının yalnız portresidir.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        const translations = {
+            "tr": {
+                "pageTitle": "Sanatın Yorumlanması – Ana Sayfa",
+                "navHome": "Ana Sayfa",
+                "navQuiz": "Duygunu Seç",
+                "navAi": "Sanatçı mı AI mı?",
+                "navCanvas": "Kendi Sanatın",
+                "headerTitle": "Sanat her gözde farklı bir anlam taşır.",
+                "headerParagraph": "Bu sitede sanatın derinliklerine iniyoruz. Renkten niyete, dönemden izleyiciye.",
+                "containerTitle": "Sanat Sayfam",
+                "containerSubtitle": "Tablolar ve Açıklamaları",
+                "tableHeaderArtworkName": "Eser Adı",
+                "tableHeaderVisual": "Görsel",
+                "tableHeaderDescription": "Açıklama",
+                "potatoEatersTitle": "Patates Yiyenler",
+                "potatoEatersDesc": "Van Gogh’un erken dönem eserlerinden biri olan Patates Yiyenler, yoksul bir köylü ailesinin sade akşam yemeğini konu alır. Sanatçı, köylü yaşamının zorluklarını ve emeğin gerçekliğini vurgulamak istemiştir. Kasvetli tonlar, sert yüz hatları ve basit ortam; tablonun dramatik ve dürüst doğasını güçlendirir. Van Gogh’a göre bu insanlar \"elleriyle ektikleri patatesi, aynı ellerle yiyorlar.\" Bu eser, onun insan emeğine duyduğu derin saygının güçlü bir yansımasıdır.",
+                "theKissTitle": "Öpücük",
+                "theKissDesc": "Gustav Klimt’in en ikonik eseri Öpücük (1907-1908), aşkın ve tutkunun yüceltilmiş bir ifadesidir. Altın varaklarla süslü bu tablo, birbirine sarılmış bir çiftin zamansız ve neredeyse kutsal bir anını betimler. Figürler gerçeklikten çok bir rüyayı anlar; arka plan soyut ve zamansızdır. Kadın figür teslimiyet içinde, erkek figür ise sevgiyle eğilmiş durumdadır. Klimt’in Art Nouveau stilini doruğa taşıyan bu eser, hem erotik hem de ruhani bir birlikteliğin simgesidir.",
+                "nighthawksTitle": "Gece Kuşları",
+                "nighthawksDesc": "**Gece Kuşları**, gecenin geç saatlerinde bir Amerikan diner’ında oturan dört kişinin sessizliğini resmeder. Hopper, modern yaşamın yalnızlığını, yabancılaşmayı ve kent hayatının içsel boşluğunu çarpıcı bir şekilde yansıtır. Soğuk yapay ışık, dışarıdaki karanlıkla keskin bir tezat oluşturur. Figürler aynı mekânda olsalar da birbirlerine temas etmez; her biri kendi iç dünyasına gömülmüştür. Bu eser, 20. yüzyılın şehirli insanının yalnız portresidir."
+            },
+            "en": {
+                "pageTitle": "Interpretation of Art – Homepage",
+                "navHome": "Homepage",
+                "navQuiz": "Choose Your Feeling",
+                "navAi": "Artist or AI?",
+                "navCanvas": "Your Own Art",
+                "headerTitle": "Art holds a different meaning in every eye.",
+                "headerParagraph": "On this site, we delve into the depths of art. From color to intention, from era to viewer.",
+                "containerTitle": "My Art Page",
+                "containerSubtitle": "Paintings and Their Descriptions",
+                "tableHeaderArtworkName": "Artwork Name",
+                "tableHeaderVisual": "Visual",
+                "tableHeaderDescription": "Description",
+                "potatoEatersTitle": "The Potato Eaters",
+                "potatoEatersDesc": "Van Gogh's early work, The Potato Eaters, depicts a simple evening meal of a poor peasant family. The artist aimed to emphasize the hardships of peasant life and the reality of labor. Somber tones, harsh facial features, and a humble setting reinforce the painting's dramatic and honest nature. According to Van Gogh, these people \"eat the potatoes they dug up with their own hands.\" This work is a powerful reflection of his deep respect for human labor.",
+                "theKissTitle": "The Kiss",
+                "theKissDesc": "Gustav Klimt's most iconic work, The Kiss (1907-1908), is a sublime expression of love and passion. Adorned with gold leaf, this painting depicts a timeless and almost sacred moment of a couple embracing. The figures suggest a dream rather than reality; the background is abstract and timeless. The female figure is in surrender, while the male figure is bent lovingly over her. This work, which brought Klimt's Art Nouveau style to its peak, symbolizes both an erotic and spiritual union.",
+                "nighthawksTitle": "Nighthawks",
+                "nighthawksDesc": "**Nighthawks** depicts the silence of four people sitting in an American diner late at night. Hopper strikingly reflects the loneliness of modern life, alienation, and the internal emptiness of urban existence. The cold artificial light creates a stark contrast with the darkness outside. Although the figures are in the same space, they do not touch each other; each is absorbed in their own inner world. This work is a solitary portrait of the urban individual in the 20th century."
+            },
+            "nl": {
+                "pageTitle": "Interpretatie van Kunst – Homepage",
+                "navHome": "Startpagina",
+                "navQuiz": "Kies Je Gevoel",
+                "navAi": "Artiest of AI?",
+                "navCanvas": "Je Eigen Kunst",
+                "headerTitle": "Kunst heeft een andere betekenis in elk oog.",
+                "headerParagraph": "Op deze site duiken we in de diepten van de kunst. Van kleur tot intentie, van periode tot kijker.",
+                "containerTitle": "Mijn Kunstpagina",
+                "containerSubtitle": "Schilderijen en Hun Beschrijvingen",
+                "tableHeaderArtworkName": "Naam Kunstwerk",
+                "tableHeaderVisual": "Visueel",
+                "tableHeaderDescription": "Beschrijving",
+                "potatoEatersTitle": "De Aardappeleters",
+                "potatoEatersDesc": "Van Goghs vroege werk, De Aardappeleters, toont een eenvoudige avondmaaltijd van een arme boerenfamilie. De kunstenaar wilde de ontberingen van het boerenleven en de realiteit van arbeid benadrukken. Somber tonen, harde gelaatstrekken en een bescheiden omgeving versterken de dramatische en eerlijke aard van het schilderij. Volgens Van Gogh \"eten deze mensen de aardappels die ze met hun eigen handen hebben geoogst.\" Dit werk is een krachtige weerspiegeling van zijn diepe respect voor menselijke arbeid.",
+                "theKissTitle": "De Kus",
+                "theKissDesc": "Gustav Klimts meest iconische werk, De Kus (1907-1908), is een sublieme uitdrukking van liefde en passie. Versierd met bladgoud, toont dit schilderij een tijdloos en bijna heilig moment van een omhelzend stel. De figuren suggereren eerder een droom dan de werkelijkheid; de achtergrond is abstract en tijdloos. De vrouwelijke figuur geeft zich over, terwijl de mannelijke figuur liefdevol over haar heen buigt. Dit werk, dat Klimts Art Nouveau-stijl naar een hoogtepunt bracht, symboliseert zowel een erotische als spirituele eenheid.",
+                "nighthawksTitle": "Nachtbrakers",
+                "nighthawksDesc": "**Nachtbrakers** toont de stilte van vier mensen die 's avonds laat in een Amerikaanse diner zitten. Hopper reflecteert opvallend de eenzaamheid van het moderne leven, vervreemding en de innerlijke leegte van het stedelijke bestaan. Het koude kunstmatige licht vormt een scherp contrast met de duisternis buiten. Hoewel de figuren zich in dezelfde ruimte bevinden, komen ze niet met elkaar in contact; elk is ondergedompeld in zijn eigen innerlijke wereld. Dit werk is een solitair portret van het stedelijke individu in de 20e eeuw."
+            },
+            "az": {
+                "pageTitle": "İncəsənətin Təfsiri – Ana Səhifə",
+                "navHome": "Ana Səhifə",
+                "navQuiz": "Duyğunu Seç",
+                "navAi": "Rəssam yoxsa Süni İntellekt?",
+                "navCanvas": "Öz Sənətin",
+                "headerTitle": "İncəsənət hər gözə fərqli bir məna verir.",
+                "headerParagraph": "Bu saytda biz incəsənətin dərinliklərinə enirik. Rəngdən niyyətə, dövrdən tamaşaçıya qədər.",
+                "containerTitle": "Mənim İncəsənət Səhifəm",
+                "containerSubtitle": "Tablolar və Təsvirləri",
+                "tableHeaderArtworkName": "Əsərin Adı",
+                "tableHeaderVisual": "Vizual",
+                "tableHeaderDescription": "Təsvir",
+                "potatoEatersTitle": "Kartof Yeyənlər",
+                "potatoEatersDesc": "Van Qoqun erkən əsərlərindən biri olan 'Kartof Yeyənlər', kasıb bir kəndli ailəsinin sadə axşam yeməyini təsvir edir. Rəssam kəndli həyatının çətinliklərini və əməyin gerçəkliyini vurğulamaq istəmişdir. Qaranlıq tonlar, sərt üz cizgiləri və sadə mühit; tablonun dramatik və dürüst xarakterini gücləndirir. Van Qoqun sözlərinə görə, bu insanlar \"öz əlləri ilə əkdikləri kartofu öz əlləri ilə yeyirlər.\" Bu əsər onun insan əməyinə olan dərin hörmətinin güclü bir əksidir.",
+                "theKissTitle": "Öpüş",
+                "theKissDesc": "Qustav Klimtin ən ikonik əsəri 'Öpüş' (1907-1908), sevgi və ehtirasın ucaldılmış ifadəsidir. Qızıl yarpaqlarla bəzədilmiş bu tablo, bir-birinə sarılmış bir cütün zamansız və demək olar ki, müqəddəs anını təsvir edir. Fiqurlar reallıqdan çox bir yuxunu xatırladır; arxa plan abstrakt və zamansızdır. Qadın fiquru təslimiyyət içində, kişi fiquru isə sevgi ilə onun üzərində əyilmişdir. Klimtin Art Nouveau üslubunu zirvəyə çatdıran bu əsər, həm erotik, həm də mənəvi birliyin simvoludur.",
+                "nighthawksTitle": "Gecə Quşları",
+                "nighthawksDesc": "**Gecə Quşları**, gecənin gec saatlarında bir Amerika yeməkxanasında oturan dörd insanın səssizliyini təsvir edir. Hopper müasir həyatın tənhalığını, yadlaşmanı və şəhər həyatının daxili boşluğunu təəccüblü şəkildə əks etdirir. Soyuq süni işıq, xaricdəki qaranlıqla kəskin bir təzad təşkil edir. Fiqurlar eyni məkanda olsalar da, bir-biri ilə təmasda deyillər; hər biri öz daxili dünyasına qərq olub. Bu əsər, 20-ci əsrin şəhər insanının tənha portretidir."
+            },
+            "ru": {
+                "pageTitle": "Интерпретация Искусства – Главная Страница",
+                "navHome": "Главная Страница",
+                "navQuiz": "Выбери Свое Чувство",
+                "navAi": "Художник или ИИ?",
+                "navCanvas": "Ваше Собственное Искусство",
+                "headerTitle": "Искусство имеет разное значение в каждом глазу.",
+                "headerParagraph": "На этом сайте мы углубляемся в глубины искусства. От цвета до намерения, от эпохи до зрителя.",
+                "containerTitle": "Моя Страница Искусства",
+                "containerSubtitle": "Картины и Их Описания",
+                "tableHeaderArtworkName": "Название Произведения",
+                "tableHeaderVisual": "Визуальное",
+                "tableHeaderDescription": "Описание",
+                "potatoEatersTitle": "Едоки Картофеля",
+                "potatoEatersDesc": "Раннее произведение Ван Гога, «Едоки картофеля», изображает простой вечерний ужин бедной крестьянской семьи. Художник стремился подчеркнуть трудности крестьянской жизни и реальность труда. Мрачные тона, резкие черты лица и скромная обстановка усиливают драматический и честный характер картины. По словам Ван Гога, эти люди «едят картофель, который они выкопали своими руками». Эта работа является мощным отражением его глубокого уважения к человеческому труду.",
+                "theKissTitle": "Поцелуй",
+                "theKissDesc": "Самое культовое произведение Густава Климта, «Поцелуй» (1907-1908), — это возвышенное выражение любви и страсти. Украшенная сусальным золотом, эта картина изображает вневременной и почти священный момент объятий пары. Фигуры скорее напоминают сон, чем реальность; фон абстрактен и вневременен. Женская фигура находится в подчинении, в то время как мужская фигура нежно склоняется над ней. Эта работа, которая достигла пика стиля ар-нуво Климта, символизирует как эротическое, так и духовное единение.",
+                "nighthawksTitle": "Полуночники",
+                "nighthawksDesc": "**Полуночники** изображают тишину четырех человек, сидящих в американской закусочной поздно ночью. Хоппер поразительно отражает одиночество современной жизни, отчуждение и внутреннюю пустоту городского существования. Холодный искусственный свет резко контрастирует с темнотой снаружи. Хотя фигуры находятся в одном пространстве, они не соприкасаются друг с другом; каждый погружен в свой внутренний мир. Эта работа является одиночным портретом городского жителя 20-го века."
+            }
+        };
+
+        const langSwitcher = document.getElementById('language-switcher');
+
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-key]').forEach(element => {
+                const key = element.getAttribute('data-key');
+                if (translations[lang] && translations[lang][key]) {
+                    // Title etiketi için özel durum: textContent kullan
+                    if (element.tagName === 'TITLE') {
+                        element.textContent = translations[lang][key];
+                    } 
+                    // img alt özniteliği için özel durum: alt özniteliğini güncelle
+                    else if (element.tagName === 'IMG' && element.hasAttribute('alt')) {
+                         // Eğer çevirilerde alt metinler tanımlıysa buraya ekle
+                         // Şu an için data-key'ler sadece metin içeriği için tanımlanmış.
+                         // Eğer görsel alt metinleri de çevrilecekse, translations objesine 'imageAlt_potatoes' gibi anahtarlar eklenmeli.
+                         // Şimdilik sadece metin içeriği olan data-key'leri işliyoruz.
+                    }
+                    // Bold (kalın) metin veya diğer HTML içeriği olan çeviriler için innerHTML kullanın.
+                    // Sadece düz metin ise textContent kullanmak güvenlik açısından daha iyidir.
+                    // 'nighthawksDesc' gibi açıklama metinleri için innerHTML kullanıyoruz.
+                    else if (key.includes("Desc") || key === "headerParagraph") { 
+                        element.innerHTML = translations[lang][key];
+                    } else {
+                        element.textContent = translations[lang][key];
+                    }
+                }
+            });
+            localStorage.setItem('selectedLang', lang); // Seçimi kaydet
+        }
+
+        // Sayfa yüklendiğinde varsayılan veya kaydedilmiş dili ayarla
+        document.addEventListener('DOMContentLoaded', () => {
+            const initialLang = localStorage.getItem('selectedLang') || 'tr'; // Kaydedilen dil yoksa 'tr'
+            langSwitcher.value = initialLang;
+            setLanguage(initialLang);
+        });
+
+        // Dil seçici değiştiğinde
+        langSwitcher.addEventListener('change', (event) => {
+            setLanguage(event.target.value);
+        });
+    </script>
+</body>
+</html>

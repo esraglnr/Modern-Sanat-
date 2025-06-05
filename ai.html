@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title data-key="pageTitle">Sanatçı mı, Yapay Zeka mı?</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f0ebf8;
+            color: #333;
+            margin: 0;
+        }
+
+        .navbar {
+            background-color: #6A4FBF;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .navbar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        header {
+            padding: 2rem 1rem;
+            text-align: center;
+            background: linear-gradient(to bottom, #e6daf5, #d2c3eb);
+        }
+
+        .slider {
+            position: relative;
+            max-width: 600px;
+            margin: 3rem auto;
+            overflow: hidden;
+            border-radius: 20px;
+        }
+
+        .slider-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .art-guess-card {
+            min-width: 100%;
+            box-sizing: border-box;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .art-guess-card img {
+            width: 100%;
+            max-height: 300px;
+            object-fit: contain;
+            border-radius: 12px;
+        }
+
+        .guess-buttons {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .guess-btn {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 30px;
+            background-color: #6A4FBF;
+            color: white;
+            cursor: pointer;
+        }
+
+        .prev-btn, .next-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #6A4FBF;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        .prev-btn { left: -20px; }
+        .next-btn { right: -20px; }
+
+        /* Language Switcher Style */
+        #language-switcher {
+            margin: 15px 20px;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            float: right;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html" data-key="navHome">Ana Sayfa</a></li>
+            <li><a href="quiz.html" data-key="navQuiz">Duygunu Seç</a></li>
+            <li><a href="canvas.html" data-key="navCanvas">Kendi Sanatın</a></li>
+            <li><a href="ai.html" data-key="navAi">Sanatçı mı AI mı?</a></li>
+        </ul>
+    </nav>
+
+    <div style="width: 100%; overflow: hidden;">
+        <select id="language-switcher">
+            <option value="tr">Türkçe</option>
+            <option value="en">English</option>
+            <option value="nl">Nederlands</option>
+            <option value="az">Azərbaycanca</option>
+            <option value="ru">Русский</option>
+        </select>
+    </div>
+
+    <header>
+        <h1 data-key="headerTitle">Sanatçı mı, Yapay Zeka mı?</h1>
+    </header>
+
+    <section class="ai-artist-game" id="ai-game">
+        <h2 data-key="sectionTitle">Sanatçı mı, Yapay Zeka mı?</h2>
+
+        <div class="slider">
+            <button class="prev-btn">‹</button>
+            <div class="slider-track">
+                <div class="art-guess-card" data-correct="artist">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReLVTp-fWGZvu4N-FTyp2qv7O2oX6WwMEffyizxuUuPNIOKACwm6i1KzM&s=10" alt="Sanatçı Eseri 1">
+                    <div class="guess-buttons">
+                        <button class="guess-btn" data-answer="artist" data-key="artistBtn">Sanatçı</button>
+                        <button class="guess-btn" data-answer="ai" data-key="aiBtn">Yapay Zeka</button>
+                    </div>
+                    <div class="guess-feedback"></div>
+                </div>
+
+                <div class="art-guess-card" data-correct="artist">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRoOFkpdz-Ze0xQk58bn3cJ2bU2S1fU0QWjQ&s" alt="Sanatçı Eseri 2">
+                    <div class="guess-buttons">
+                        <button class="guess-btn" data-answer="artist" data-key="artistBtn">Sanatçı</button>
+                        <button class="guess-btn" data-answer="ai" data-key="aiBtn">Yapay Zeka</button>
+                    </div>
+                    <div class="guess-feedback"></div>
+                </div>
+
+                <div class="art-guess-card" data-correct="ai">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-2FGjvsl5QpDqkyFPKJq2zBD-O_Ven5iyo82hW6la4Q6sryVk93UbNznM&s=10" alt="Yapay Zeka Eseri 1">
+                    <div class="guess-buttons">
+                        <button class="guess-btn" data-answer="artist" data-key="artistBtn">Sanatçı</button>
+                        <button class="guess-btn" data-answer="ai" data-key="aiBtn">Yapay Zeka</button>
+                    </div>
+                    <div class="guess-feedback"></div>
+                </div>
+
+                <div class="art-guess-card" data-correct="ai">
+                    <img src="https://i.imgur.com/gjKxidE.png" alt="Yapay Zeka Eseri 2">
+                    <div class="guess-buttons">
+                        <button class="guess-btn" data-answer="artist" data-key="artistBtn">Sanatçı</button>
+                        <button class="guess-btn" data-answer="ai" data-key="aiBtn">Yapay Zeka</button>
+                    </div>
+                    <div class="guess-feedback"></div>
+                </div>
+            </div>
+            <button class="next-btn">›</button>
+        </div>
+    </section>
+
+    <script>
+        const translations = {
+            "tr": {
+                "pageTitle": "Sanatçı mı, Yapay Zeka mı?",
+                "navHome": "Ana Sayfa",
+                "navQuiz": "Duygunu Seç",
+                "navAi": "Sanatçı mı AI mı?",
+                "navCanvas": "Kendi Sanatın",
+                "headerTitle": "Sanatçı mı, Yapay Zeka mı?",
+                "sectionTitle": "Sanatçı mı, Yapay Zeka mı?",
+                "artistBtn": "Sanatçı",
+                "aiBtn": "Yapay Zeka",
+                "feedbackCorrect": "Doğru!",
+                "feedbackWrong": "Yanlış!"
+            },
+            "en": {
+                "pageTitle": "Artist or AI?",
+                "navHome": "Homepage",
+                "navQuiz": "Choose Your Feeling",
+                "navAi": "Artist or AI?",
+                "navCanvas": "Your Own Art",
+                "headerTitle": "Artist or AI?",
+                "sectionTitle": "Artist or AI?",
+                "artistBtn": "Artist",
+                "aiBtn": "AI",
+                "feedbackCorrect": "Correct!",
+                "feedbackWrong": "Wrong!"
+            },
+            "nl": {
+                "pageTitle": "Artiest of AI?",
+                "navHome": "Startpagina",
+                "navQuiz": "Kies Je Gevoel",
+                "navAi": "Artiest of AI?",
+                "navCanvas": "Jouw Eigen Kunst",
+                "headerTitle": "Artiest of AI?",
+                "sectionTitle": "Artiest of AI?",
+                "artistBtn": "Artiest",
+                "aiBtn": "AI",
+                "feedbackCorrect": "Juist!",
+                "feedbackWrong": "Fout!"
+            },
+            "az": {
+                "pageTitle": "Rəssam yoxsa Süni İntellekt?",
+                "navHome": "Ana Səhifə",
+                "navQuiz": "Duyğunu Seç",
+                "navAi": "Rəssam yoxsa Süni İntellekt?",
+                "navCanvas": "Öz Sənətin",
+                "headerTitle": "Rəssam yoxsa Süni İntellekt?",
+                "sectionTitle": "Rəssam yoxsa Süni İntellekt?",
+                "artistBtn": "Rəssam",
+                "aiBtn": "Süni İntellekt",
+                "feedbackCorrect": "Doğrudur!",
+                "feedbackWrong": "Səhvdir!"
+            },
+            "ru": {
+                "pageTitle": "Художник или ИИ?",
+                "navHome": "Главная Страница",
+                "navQuiz": "Выбери Свое Чувство",
+                "navAi": "Художник или ИИ?",
+                "navCanvas": "Ваше Собственное Искусство",
+                "headerTitle": "Художник или ИИ?",
+                "sectionTitle": "Художник или ИИ?",
+                "artistBtn": "Художник",
+                "aiBtn": "ИИ",
+                "feedbackCorrect": "Правильно!",
+                "feedbackWrong": "Неправильно!"
+            }
+        };
+
+        const langSwitcher = document.getElementById('language-switcher');
+
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-key]').forEach(element => {
+                const key = element.getAttribute('data-key');
+                if (translations[lang] && translations[lang][key]) {
+                    if (element.tagName === 'TITLE') {
+                        element.textContent = translations[lang][key];
+                    } else {
+                        element.textContent = translations[lang][key];
+                    }
+                }
+            });
+            localStorage.setItem('selectedLang', lang);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const initialLang = localStorage.getItem('selectedLang') || 'tr';
+            langSwitcher.value = initialLang;
+            setLanguage(initialLang);
+        });
+
+        langSwitcher.addEventListener('change', (event) => {
+            setLanguage(event.target.value);
+        });
+
+        // Game specific JavaScript (Doğru/Yanlış geri bildirimleri de çevirelim)
+        const cards = document.querySelectorAll('.art-guess-card');
+
+        cards.forEach(card => {
+            const correct = card.getAttribute('data-correct');
+            const buttons = card.querySelectorAll('.guess-btn');
+            const feedback = card.querySelector('.guess-feedback');
+
+            buttons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const answer = btn.getAttribute('data-answer');
+                    if (answer === correct) {
+                        feedback.textContent = translations[langSwitcher.value].feedbackCorrect; // Çeviri kullan
+                        feedback.style.color = 'green';
+                    } else {
+                        feedback.textContent = translations[langSwitcher.value].feedbackWrong; // Çeviri kullan
+                        feedback.style.color = 'red';
+                    }
+                });
+            });
+        });
+
+        const sliderTrack = document.querySelector('.slider-track');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        let currentIndex = 0;
+
+        function updateSlider() {
+            const slideWidth = sliderTrack.children[0].offsetWidth;
+            sliderTrack.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+        }
+
+        nextBtn.addEventListener('click', () => {
+            if (currentIndex < sliderTrack.children.length - 1) {
+                currentIndex++;
+                updateSlider();
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateSlider();
+            }
+        });
+    </script>
+    <script src="script.js"></script> </body>
+</html>

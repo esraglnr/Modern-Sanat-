@@ -1,0 +1,307 @@
+/* Genel gövde ve başlık */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #E6DAF5; /* pastel lila */
+  color: white;
+  text-align: center;
+}
+
+header {
+  padding: 3rem 1rem;
+  background: linear-gradient(180deg, #E6DAF5 0%, #d2c3eb 100%);
+}
+
+/* Kartlar bölümü */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.card {
+  width: 250px;
+  height: 350px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.card-front, .card-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  border-radius: 20px;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+  transition: transform 0.8s ease;
+  overflow: hidden;
+}
+
+.card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  filter: brightness(85%);
+}
+
+.card-back {
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  transform: rotateY(180deg);
+}
+
+.card:hover .card-front {
+  transform: rotateY(180deg);
+}
+
+.card:hover .card-back {
+  transform: rotateY(360deg);
+}
+
+#card1 .card-front { background-color: rgba(255, 192, 203, 0.4); }
+#card2 .card-front { background-color: rgba(255, 253, 208, 0.4); }
+#card3 .card-front { background-color: rgba(173, 216, 230, 0.4); }
+#card4 .card-front { background-color: rgba(255, 165, 0, 0.4); }
+
+/* Quiz bölümü */
+.quiz {
+  margin-top: 4rem;
+  background: rgba(255,255,255,0.1);
+  padding: 2rem;
+  border-radius: 20px;
+}
+
+.options {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.option {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  transition: transform 0.3s ease;
+  animation: float 3s ease-in-out infinite;
+  cursor: pointer;
+}
+
+.option:hover {
+  transform: scale(1.1);
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes confetti {
+  0% {opacity: 1; transform: translateY(0);}
+  100% {opacity: 0; transform: translateY(200px);}
+}
+
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  animation: confetti 2s ease forwards;
+  pointer-events: none;
+}
+
+/* Sanat oluşturma aracı */
+.art-creator {
+  margin-top: 4rem;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+}
+
+.art-creator h2 {
+  color: white;
+  margin-bottom: 1rem;
+}
+
+#artCanvas {
+  background-color: white;
+  border-radius: 10px;
+  cursor: crosshair;
+}
+
+.brush-controls {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.brush-controls input,
+.brush-controls button {
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+}
+
+/* Sanatçı mı AI mı oyunu */
+.ai-artist-game {
+  margin-top: 4rem;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+}
+
+.ai-artist-game h2 {
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.art-guess-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+.art-guess-card img {
+  width: auto; /* kendi doğal genişliği */
+  height: auto; /* kendi doğal yüksekliği */
+  max-width: 100%; /* karttan taşarsa sığdırır */
+  max-height: 100%; /* yükseklikten taşarsa sığdırır */
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto;
+}
+
+
+.guess-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.guess-btn {
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  background-color: white;
+  color: #6A4FBF;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.guess-btn:hover {
+  transform: scale(1.05);
+  background-color: #f0e8ff;
+}
+
+#guessFeedback {
+  font-size: 1.2rem;
+  color: white;
+  margin-top: 0.5rem;
+}
+
+/* Slider */
+.slider {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 2rem auto;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.slider-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.slider .art-guess-card {
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+.prev-btn, .next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #6A4FBF;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  border-radius: 50%;
+  opacity: 0.8;
+  transition: background 0.3s ease;
+}
+
+.prev-btn:hover, .next-btn:hover {
+  background: #8b6ce8;
+}
+
+.prev-btn { left: -20px; }
+.next-btn { right: -20px; } 
+.navbar {
+  position: sticky;
+  top: 0;
+  background-color: #6A4FBF;
+  padding: 0.5rem 1rem;
+  z-index: 10000;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #FFD700; /* pastel sarı */
+}
+.tablo {
+  margin: 2rem auto;
+  max-width: 800px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 1.5rem;
+  color: white;
+  text-align: center;
+}
+
+.tablo img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.tablo p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}

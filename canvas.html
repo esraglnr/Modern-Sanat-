@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-key="pageTitle">Kendi Sanatın</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: inline-block;
+        }
+
+        .navbar li {
+            float: left;
+        }
+
+        .navbar li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        .navbar li a:hover {
+            background-color: #575757;
+        }
+
+        /* Header Styles */
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #fff;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            max-width: 900px;
+            margin: 20px auto;
+        }
+
+        header h1 {
+            color: #555;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: #777;
+            font-size: 1.1em;
+        }
+
+        /* Language Switcher Style */
+        #language-switcher {
+            margin: 15px 20px;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            float: right;
+        }
+
+        /* Art Creator Section Styles */
+        .art-creator {
+            max-width: 900px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .art-creator h2 {
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        #artCanvas {
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            cursor: crosshair;
+            display: block; /* Centers the canvas */
+            margin: 0 auto 20px auto;
+        }
+
+        .brush-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap; /* Allows controls to wrap on smaller screens */
+        }
+
+        .brush-controls label {
+            font-weight: bold;
+            color: #555;
+        }
+
+        .brush-controls input[type="color"] {
+            width: 40px;
+            height: 40px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .brush-controls input[type="range"] {
+            width: 150px;
+            cursor: pointer;
+        }
+
+        .brush-controls button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .brush-controls button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <audio autoplay loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-slowmotion.mp3" type="audio/mpeg">
+        <span data-key="audioSupport">Tarayıcınız ses öğesini desteklemiyor.</span>
+    </audio>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html" data-key="navHome">Ana Sayfa</a></li>
+            <li><a href="quiz.html" data-key="navQuiz">Duygunu Seç</a></li>
+            <li><a href="ai.html" data-key="navAi">Sanatçı mı AI mı?</a></li>
+            <li><a href="canvas.html" data-key="navCanvas">Kendi Sanatın</a></li>
+        </ul>
+    </nav>
+
+    <div style="width: 100%; overflow: hidden;">
+        <select id="language-switcher">
+            <option value="tr">Türkçe</option>
+            <option value="en">English</option>
+            <option value="nl">Nederlands</option>
+            <option value="az">Azərbaycanca</option>
+            <option value="ru">Русский</option>
+        </select>
+    </div>
+
+    <header>
+        <h1 data-key="headerTitle">Sanat her gözde farklı bir anlam taşır.</h1>
+        <p data-key="headerParagraph">Bu sitede sanatın derinliklerine iniyoruz. Renkten niyete, dönemden izleyiciye.</p>
+    </header>
+
+    <section class="art-creator">
+        <h2 data-key="creatorTitle">Kendi sanatını yarat!</h2>
+        <canvas id="artCanvas" width="600" height="400"></canvas>
+        <div class="brush-controls">
+            <label for="brushColor" data-key="labelColor">Renk:</label>
+            <input type="color" id="brushColor" value="#000000">
+
+            <label for="brushSize" data-key="labelSize">Boyut:</label>
+            <input type="range" id="brushSize" min="1" max="30" value="5">
+
+            <button id="clearCanvas" data-key="buttonClear">Temizle</button>
+        </div>
+    </section>
+
+    <script>
+        const translations = {
+            "tr": {
+                "pageTitle": "Kendi Sanatın",
+                "audioSupport": "Tarayıcınız ses öğesini desteklemiyor.",
+                "navHome": "Ana Sayfa",
+                "navQuiz": "Duygunu Seç",
+                "navAi": "Sanatçı mı AI mı?",
+                "navCanvas": "Kendi Sanatın",
+                "headerTitle": "Sanat her gözde farklı bir anlam taşır.",
+                "headerParagraph": "Bu sitede sanatın derinliklerine iniyoruz. Renkten niyete, dönemden izleyiciye.",
+                "creatorTitle": "Kendi sanatını yarat!",
+                "labelColor": "Renk:",
+                "labelSize": "Boyut:",
+                "buttonClear": "Temizle"
+            },
+            "en": {
+                "pageTitle": "Your Own Art",
+                "audioSupport": "Your browser does not support the audio element.",
+                "navHome": "Homepage",
+                "navQuiz": "Choose Your Feeling",
+                "navAi": "Artist or AI?",
+                "navCanvas": "Your Own Art",
+                "headerTitle": "Art holds a different meaning in every eye.",
+                "headerParagraph": "On this site, we delve into the depths of art. From color to intention, from era to viewer.",
+                "creatorTitle": "Create your own art!",
+                "labelColor": "Color:",
+                "labelSize": "Size:",
+                "buttonClear": "Clear"
+            },
+            "nl": {
+                "pageTitle": "Jouw Eigen Kunst",
+                "audioSupport": "Uw browser ondersteunt het audio-element niet.",
+                "navHome": "Startpagina",
+                "navQuiz": "Kies Je Gevoel",
+                "navAi": "Artiest of AI?",
+                "navCanvas": "Jouw Eigen Kunst",
+                "headerTitle": "Kunst heeft een andere betekenis in elk oog.",
+                "headerParagraph": "Op deze site duiken we in de diepten van de kunst. Van kleur tot intentie, van periode tot kijker.",
+                "creatorTitle": "Creëer je eigen kunst!",
+                "labelColor": "Kleur:",
+                "labelSize": "Grootte:",
+                "buttonClear": "Wissen"
+            },
+            "az": {
+                "pageTitle": "Öz Sənətin",
+                "audioSupport": "Brauzeriniz səs elementini dəstəkləmir.",
+                "navHome": "Ana Səhifə",
+                "navQuiz": "Duyğunu Seç",
+                "navAi": "Rəssam yoxsa Süni İntellekt?",
+                "navCanvas": "Öz Sənətin",
+                "headerTitle": "İncəsənət hər gözə fərqli bir məna verir.",
+                "headerParagraph": "Bu saytda biz incəsənətin dərinliklərinə enirik. Rəngdən niyyətə, dövrdən tamaşaçıya qədər.",
+                "creatorTitle": "Öz sənətini yarat!",
+                "labelColor": "Rəng:",
+                "labelSize": "Ölçü:",
+                "buttonClear": "Təmizlə"
+            },
+            "ru": {
+                "pageTitle": "Ваше Собственное Искусство",
+                "audioSupport": "Ваш браузер не поддерживает аудио элемент.",
+                "navHome": "Главная Страница",
+                "navQuiz": "Выбери Свое Чувство",
+                "navAi": "Художник или ИИ?",
+                "navCanvas": "Ваше Собственное Искусство",
+                "headerTitle": "Искусство имеет разное значение в каждом глазу.",
+                "headerParagraph": "На этом сайте мы углубляемся в глубины искусства. От цвета до намерения, от эпохи до зрителя.",
+                "creatorTitle": "Создайте свое собственное искусство!",
+                "labelColor": "Цвет:",
+                "labelSize": "Размер:",
+                "buttonClear": "Очистить"
+            }
+        };
+
+        const langSwitcher = document.getElementById('language-switcher');
+
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-key]').forEach(element => {
+                const key = element.getAttribute('data-key');
+                if (translations[lang] && translations[lang][key]) {
+                    if (element.tagName === 'TITLE') {
+                        element.textContent = translations[lang][key];
+                    } 
+                    else if (key.includes("Desc") || key === "headerParagraph" || key === "audioSupport") { 
+                        element.innerHTML = translations[lang][key];
+                    } else {
+                        element.textContent = translations[lang][key];
+                    }
+                }
+            });
+            localStorage.setItem('selectedLang', lang);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const initialLang = localStorage.getItem('selectedLang') || 'tr';
+            langSwitcher.value = initialLang;
+            setLanguage(initialLang);
+        });
+
+        langSwitcher.addEventListener('change', (event) => {
+            setLanguage(event.target.value);
+        });
+
+        // Kendi Sanatın sayfası için canvas JavaScript'i
+        const canvas = document.getElementById('artCanvas');
+        const ctx = canvas.getContext('2d');
+        const brushColor = document.getElementById('brushColor');
+        const brushSize = document.getElementById('brushSize');
+        const clearCanvasBtn = document.getElementById('clearCanvas');
+
+        let isDrawing = false;
+
+        function startDrawing(e) {
+            isDrawing = true;
+            draw(e); // Start drawing immediately on click
+        }
+
+        function draw(e) {
+            if (!isDrawing) return;
+
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            ctx.lineWidth = brushSize.value;
+            ctx.lineCap = 'round';
+            ctx.strokeStyle = brushColor.value;
+
+            ctx.lineTo(x, y);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+        }
+
+        function stopDrawing() {
+            isDrawing = false;
+            ctx.beginPath(); // Reset path after lifting pen
+        }
+
+        canvas.addEventListener('mousedown', startDrawing);
+        canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('mouseup', stopDrawing);
+        canvas.addEventListener('mouseout', stopDrawing); // Stop drawing if mouse leaves canvas
+
+        clearCanvasBtn.addEventListener('click', () => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the entire canvas
+        });
+    </script>
+    <script src="script.js"></script> </body>
+</html>
