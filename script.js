@@ -42,7 +42,6 @@ function createConfetti() {
     confetti.style.animation = "confetti-fall 2s ease forwards";
     document.body.appendChild(confetti);
     setTimeout(() => confetti.remove(), 2000);
-  }
 }
 
 // Şimşek efekti
@@ -77,9 +76,8 @@ function sparkleEffect() {
     setTimeout(() => star.remove(), 2000);
   }
 }
-
 // Yağmur efekti
-function RainEffect() {
+function createRain() {
   for (let i = 0; i < 30; i++) {
     const drop = document.createElement("div");
     drop.style.position = "fixed";
@@ -94,6 +92,7 @@ function RainEffect() {
     document.body.appendChild(drop);
     setTimeout(() => drop.remove(), 1000);
   }
+}
 }
 
 // Canvas çizim
@@ -123,8 +122,13 @@ canvas.addEventListener("mousemove", draw);
 document.getElementById("clearCanvas").addEventListener("click", () => {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 });
-
 document.addEventListener('DOMContentLoaded', () => {
+
+});
+document.addEventListener('DOMContentLoaded', () => {
+
+
+});
   // Sanatçı mı AI mı? doğru-yanlış kontrolü
   const sliderCards = document.querySelectorAll('.slider .art-guess-card');
 
@@ -142,8 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
           feedback.textContent = '❌ Yanlış!';
           feedback.style.color = 'red';
-        }
-      });
+      }
     });
   });
 

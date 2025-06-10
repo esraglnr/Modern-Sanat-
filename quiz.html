@@ -76,6 +76,77 @@
             float: right;
             background-color: #f9f9f9;
         }
+        
+        /* Card Section Styles */
+        .art-gallery {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            perspective: 1000px;
+            margin-top: 20px;
+        }
+
+        .card {
+            width: 300px;
+            height: 400px;
+            background-color: transparent;
+        }
+        
+        .card-inner-flipper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        }
+
+        .card:hover .card-inner-flipper {
+            transform: rotateY(180deg);
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .card-front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-back {
+            background-color: #2c3e50;
+            color: white;
+            transform: rotateY(180deg);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+        .card-back h3 {
+            margin-top: 0;
+        }
+        .card-back h4 {
+            font-weight: normal;
+            color: #ccc;
+        }
+
 
         /* Quiz Section Styles */
         .quiz {
@@ -133,9 +204,8 @@
         /* Confetti, Lightning, Sparkle, Rain Element Styles */
         .confetti {
             position: fixed;
-            /* Diğer style'lar JS ile eklenecek */
         }
-        .lightning-flash { /* Şimşek efekti için kullanılabilir */
+        .lightning-flash {
             position: fixed;
             top: 0;
             left: 0;
@@ -144,27 +214,25 @@
             background-color: white;
             opacity: 0.8;
             z-index: 9999;
-            animation: flash-animation 0.2s ease-out forwards; /* Yeni animasyon */
+            animation: flash-animation 0.2s ease-out forwards;
         }
-        .sparkle-star { /* Parıltı yıldızı için kullanılabilir */
+        .sparkle-star {
             position: fixed;
-            /* Diğer style'lar JS ile eklenecek */
         }
-        .rain-drop { /* Yağmur damlası için kullanılabilir */
+        .rain-drop {
             position: fixed;
-            /* Diğer style'lar JS ile eklenecek */
         }
 
-        /* Keyframe Animations from your script.js */
+        /* Keyframe Animations */
         @keyframes confetti-fall {
             0% { transform: scale(1) translateY(0); opacity: 1; }
-            100% { transform: scale(0.5) translateY(100vh); opacity: 0; } /* translateY 100px -> 100vh yaptım düşmesi için */
+            100% { transform: scale(0.5) translateY(100vh); opacity: 0; }
         }
-        @keyframes flash-animation { /* Yeni şimşek animasyonu */
+        @keyframes flash-animation {
             0% { opacity: 0.8; }
             100% { opacity: 0; }
         }
-        @keyframes fall { /* Yağmur damlası animasyonu */
+        @keyframes fall {
             to { transform: translateY(100vh); opacity: 0; }
         }
     </style>
@@ -198,85 +266,67 @@
         <h1 data-key="headerTitle">Sanat her gözde farklı bir anlam taşır.</h1>
         <p data-key="headerParagraph">Bu sitede sanatın derinliklerine iniyoruz. Renkten niyete, dönemden izleyiciye.</p>
     </header>
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Sanat Quizi</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-    <h1>Modern Sanat Eserleri</h1>
-    <p>Eserin kimin olduğunu ve hikayesini öğrenmek için kartın üzerine gelin.</p>
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Sanat Quizi</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
     
-    <div class="card-container">
+    <div class="art-gallery">
+        <h1 data-key="galleryTitle">Modern Sanat Eserleri</h1>
+        <p data-key="gallerySubtitle">Eserin kimin olduğunu ve hikayesini öğrenmek için kartın üzerine gelin.</p>
+        <div class="card-container">
 
-        <div class="card" id="card1">
-            <div class="card-inner-flipper">
-                <div class="card-front">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1280px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg" alt="Yıldızlı Gece">
-                </div>
-                <div class="card-back">
-                    <h3>Yıldızlı Gece</h3>
-                    <h4>Vincent van Gogh (1889)</h4>
-                    <p>Post-Empresyonist Hollandalı sanatçı Van Gogh'un en ünlü eserlerinden biridir.</p>
+            <div class="card" id="card1">
+                <div class="card-inner-flipper">
+                    <div class="card-front">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1280px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg" alt="Yıldızlı Gece">
+                    </div>
+                    <div class="card-back">
+                        <h3 data-key="card1Title">Yıldızlı Gece</h3>
+                        <h4>Vincent van Gogh (1889)</h4>
+                        <p data-key="card1Desc">Post-Empresyonist Hollandalı sanatçı Van Gogh'un en ünlü eserlerinden biridir.</p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="card" id="card2">
-            <div class="card-inner-flipper">
-                <div class="card-front">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/d/dd/The_Persistence_of_Memory.jpg" alt="Belleğin Azmi">
-                </div>
-                <div class="card-back">
-                    <h3>Belleğin Azmi</h3>
-                    <h4>Salvador Dalí (1931)</h4>
-                    <p>Sürrealizmin en bilinen eserlerindendir. "Eriyen saatler" olarak da bilinir.</p>
+            <div class="card" id="card2">
+                <div class="card-inner-flipper">
+                    <div class="card-front">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/d/dd/The_Persistence_of_Memory.jpg" alt="Belleğin Azmi">
+                    </div>
+                    <div class="card-back">
+                        <h3 data-key="card2Title">Belleğin Azmi</h3>
+                        <h4>Salvador Dalí (1931)</h4>
+                        <p data-key="card2Desc">Sürrealizmin en bilinen eserlerindendir. "Eriyen saatler" olarak da bilinir.</p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="card" id="card3">
-            <div class="card-inner-flipper">
-                <div class="card-front">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Edvard_Munch%2C_1893%2C_The_Scream%2C_oil%2C_tempera_and_pastel_on_cardboard%2C_91_x_73_cm%2C_National_Gallery_of_Norway.jpg/800px-Edvard_Munch%2C_1893%2C_The_Scream%2C_oil%2C_tempera_and_pastel_on_cardboard%2C_91_x_73_cm%2C_National_Gallery_of_Norway.jpg" alt="Çığlık">
-                </div>
-                <div class="card-back">
-                    <h3>Çığlık</h3>
-                    <h4>Edvard Munch (1893)</h4>
-                    <p>Dışavurumculuk akımının simgesi haline gelmiştir. Sanatçı, doğanın çığlığını duyduğu bir andaki ruhsal acıyı ve yabancılaşmayı betimler.</p>
+            <div class="card" id="card3">
+                <div class="card-inner-flipper">
+                    <div class="card-front">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Edvard_Munch%2C_1893%2C_The_Scream%2C_oil%2C_tempera_and_pastel_on_cardboard%2C_91_x_73_cm%2C_National_Gallery_of_Norway.jpg/800px-Edvard_Munch%2C_1893%2C_The_Scream%2C_oil%2C_tempera_and_pastel_on_cardboard%2C_91_x_73_cm%2C_National_Gallery_of_Norway.jpg" alt="Çığlık">
+                    </div>
+                    <div class="card-back">
+                        <h3 data-key="card3Title">Çığlık</h3>
+                        <h4>Edvard Munch (1893)</h4>
+                        <p data-key="card3Desc">Dışavurumculuk akımının simgesi haline gelmiştir. Sanatçı, doğanın çığlığını duyduğu bir andaki ruhsal acıyı ve yabancılaşmayı betimler.</p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="card" id="card4">
-            <div class="card-inner-flipper">
-                <div class="card-front">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/7/74/PicassoGuernica.jpg" alt="Guernica">
-                </div>
-                <div class="card-back">
-                    <h3>Guernica</h3>
-                    <h4>Pablo Picasso (1937)</h4>
-                    <p>Kübizm'in en bilinen eserlerindendir. İspanya İç Savaşı'ndaki bombardımanı ve savaşın trajedisini yansıtan anıtsal bir eserdir.</p>
+            <div class="card" id="card4">
+                <div class="card-inner-flipper">
+                    <div class="card-front">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/7/74/PicassoGuernica.jpg" alt="Guernica">
+                    </div>
+                    <div class="card-back">
+                        <h3 data-key="card4Title">Guernica</h3>
+                        <h4>Pablo Picasso (1937)</h4>
+                        <p data-key="card4Desc">Kübizm'in en bilinen eserlerindendir. İspanya İç Savaşı'ndaki bombardımanı ve savaşın trajedisini yansıtan anıtsal bir eserdir.</p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-    </div> </body>
-</html>
+        </div>
+    </div>
+    
     <section class="quiz">
         <h2 data-key="quizQuestion">Bu tablolar sizde ne hissettirdi?</h2>
         <div class="options">
@@ -302,6 +352,16 @@
                 "navCanvas": "Kendi Sanatın",
                 "headerTitle": "Sanat her gözde farklı bir anlam taşır.",
                 "headerParagraph": "Bu sitede sanatın derinliklerine iniyoruz. Renkten niyete, dönemden izleyiciye.",
+                "galleryTitle": "Modern Sanat Eserleri",
+                "gallerySubtitle": "Eserin kimin olduğunu ve hikayesini öğrenmek için kartın üzerine gelin.",
+                "card1Title": "Yıldızlı Gece",
+                "card1Desc": "Post-Empresyonist Hollandalı sanatçı Van Gogh'un en ünlü eserlerinden biridir.",
+                "card2Title": "Belleğin Azmi",
+                "card2Desc": "Sürrealizmin en bilinen eserlerindendir. \"Eriyen saatler\" olarak da bilinir.",
+                "card3Title": "Çığlık",
+                "card3Desc": "Dışavurumculuk akımının simgesi haline gelmiştir. Sanatçı, doğanın çığlığını duyduğu bir andaki ruhsal acıyı ve yabancılaşmayı betimler.",
+                "card4Title": "Guernica",
+                "card4Desc": "Kübizm'in en bilinen eserlerindendir. İspanya İç Savaşı'ndaki bombardımanı ve savaşın trajedisini yansıtan anıtsal bir eserdir.",
                 "quizQuestion": "Bu tablolar sizde ne hissettirdi?",
                 "optionPeace": "Huzur",
                 "optionChaos": "Kaos",
@@ -319,6 +379,16 @@
                 "navCanvas": "Your Own Art",
                 "headerTitle": "Art holds a different meaning in every eye.",
                 "headerParagraph": "On this site, we delve into the depths of art. From color to intention, from era to viewer.",
+                "galleryTitle": "Modern Artworks",
+                "gallerySubtitle": "Hover over the card to learn about the artwork and its story.",
+                "card1Title": "The Starry Night",
+                "card1Desc": "One of the most famous works by the Post-Impressionist Dutch artist Van Gogh.",
+                "card2Title": "The Persistence of Memory",
+                "card2Desc": "One of the most recognizable works of Surrealism. Also known as \"The Melting Clocks\".",
+                "card3Title": "The Scream",
+                "card3Desc": "It has become a symbol of the Expressionism movement. The artist depicts the spiritual anguish and alienation he felt upon hearing the 'scream of nature'.",
+                "card4Title": "Guernica",
+                "card4Desc": "One of the most famous works of Cubism. It is a monumental work that reflects the bombing of Guernica during the Spanish Civil War and the tragedy of war.",
                 "quizQuestion": "How did these paintings make you feel?",
                 "optionPeace": "Peace",
                 "optionChaos": "Chaos",
@@ -336,6 +406,16 @@
                 "navCanvas": "Jouw Eigen Kunst",
                 "headerTitle": "Kunst heeft een andere betekenis in elk oog.",
                 "headerParagraph": "Op deze site duiken we in de diepten van de kunst. Van kleur tot intentie, van periode tot kijker.",
+                "galleryTitle": "Moderne Kunstwerken",
+                "gallerySubtitle": "Beweeg over de kaart om de kunstenaar en het verhaal van het werk te ontdekken.",
+                "card1Title": "De Sterrennacht",
+                "card1Desc": "Een van de beroemdste werken van de postimpressionistische Nederlandse kunstenaar Van Gogh.",
+                "card2Title": "De volharding der herinnering",
+                "card2Desc": "Een van de bekendste werken van het surrealisme. Ook bekend als \"De smeltende horloges\".",
+                "card3Title": "De Schreeuw",
+                "card3Desc": "Het is een symbool geworden van het expressionisme. De kunstenaar verbeeldt de spirituele angst en vervreemding die hij voelde toen hij de 'schreeuw van de natuur' hoorde.",
+                "card4Title": "Guernica",
+                "card4Desc": "Een van de beroemdste werken van het kubisme. Het is een monumentaal werk dat het bombardement op Guernica tijdens de Spaanse Burgeroorlog en de tragedie van de oorlog weerspiegelt.",
                 "quizQuestion": "Hoe voelden deze schilderijen voor jou?",
                 "optionPeace": "Rust",
                 "optionChaos": "Chaos",
@@ -353,6 +433,16 @@
                 "navCanvas": "Öz Sənətin",
                 "headerTitle": "İncəsənət hər gözə fərqli bir məna verir.",
                 "headerParagraph": "Bu saytda biz incəsənətin dərinliklərinə enirik. Rəngdən niyyətə, dövrdən tamaşaçıya qədər.",
+                "galleryTitle": "Müasir İncəsənət Əsərləri",
+                "gallerySubtitle": "Əsərin kimə aid olduğunu və hekayəsini öyrənmək üçün kartın üzərinə gəlin.",
+                "card1Title": "Ulduzlu Gecə",
+                "card1Desc": "Post-İmpressionist Hollandiyalı rəssam Van Qoqun ən məşhur əsərlərindən biridir.",
+                "card2Title": "Yaddaşın Əzmi",
+                "card2Desc": "Sürrealizmin ən tanınmış əsərlərindən biridir. 'Əriyən saatlar' kimi də tanınır.",
+                "card3Title": "Qışqırıq",
+                "card3Desc": "Ekspressionizm cərəyanının simvoluna çevrilmişdir. Rəssam, təbiətin fəryadını eşitdiyi bir andakı mənəvi ağrını və özgələşməni təsvir edir.",
+                "card4Title": "Gernika",
+                "card4Desc": "Kubizmin ən tanınmış əsərlərindən biridir. İspaniya Vətəndaş Müharibəsi zamanı Gernikanın bombalanmasını və müharibənin faciəsini əks etdirən monumental bir əsərdir.",
                 "quizQuestion": "Bu tablolar sizə nə hiss etdirdi?",
                 "optionPeace": "Sülh",
                 "optionChaos": "Xaos",
@@ -370,6 +460,16 @@
                 "navCanvas": "Ваше Собственное Искусство",
                 "headerTitle": "Искусство имеет разное значение в каждом глазу.",
                 "headerParagraph": "На этом сайте мы углубляемся в глубины искусства. От цвета до намерения, от эпохи до зрителя.",
+                "galleryTitle": "Произведения Современного Искусства",
+                "gallerySubtitle": "Наведите курсор на карточку, чтобы узнать, кому принадлежит работа и ее историю.",
+                "card1Title": "Звёздная ночь",
+                "card1Desc": "Одна из самых известных работ голландского художника-постимпрессиониста Ван Гога.",
+                "card2Title": "Постоянство памяти",
+                "card2Desc": "Одна из самых известных работ сюрреализма. Также известна как \"Тающие часы\".",
+                "card3Title": "Крик",
+                "card3Desc": "Стало символом экспрессионизма. Художник изображает душевную боль и отчуждение в момент, когда он услышал 'крик природы'.",
+                "card4Title": "Герника",
+                "card4Desc": "Одна из самых известных работ кубизма. Это монументальное произведение, отражающее бомбардировку Герники во время гражданской войны в Испании и трагедию войны.",
                 "quizQuestion": "Что вы почувствовали от этих картин?",
                 "optionPeace": "Покой",
                 "optionChaos": "Хаос",
@@ -412,13 +512,7 @@
         const options = document.querySelectorAll(".option");
         options.forEach(option => {
             option.addEventListener("click", () => {
-                // Seçilen dilin metnini al
                 const currentLang = localStorage.getItem('selectedLang') || 'tr';
-                const peaceText = translations[currentLang].optionPeace;
-                const chaosText = translations[currentLang].optionChaos;
-                const curiosityText = translations[currentLang].optionCuriosity;
-                const sadnessText = translations[currentLang].optionSadness;
-
                 const clickedOptionKey = option.getAttribute('data-key');
 
                 if (clickedOptionKey === 'optionPeace') {
@@ -428,15 +522,14 @@
                 } else if (clickedOptionKey === 'optionCuriosity') {
                     sparkleEffect();
                 } else if (clickedOptionKey === 'optionSadness') {
-                    RainEffect(); // Fonksiyon adı düzeltildi
-                    alert(translations[currentLang].alertSadness); // Alert mesajı dil destekli
+                    RainEffect();
+                    alert(translations[currentLang].alertSadness);
                 }
                 option.classList.add("selected");
                 setTimeout(() => option.classList.remove("selected"), 1500);
             });
         });
 
-        // Konfeti tüm ekran
         function createConfetti() {
             for (let i = 0; i < 100; i++) {
                 const confetti = document.createElement("div");
@@ -456,19 +549,17 @@
             }
         }
 
-        // Şimşek efekti
         function flashLightning() {
             const flash = document.createElement("div");
-            flash.classList.add("lightning-flash"); // CSS sınıfı eklendi
+            flash.classList.add("lightning-flash");
             document.body.appendChild(flash);
             setTimeout(() => flash.remove(), 200);
         }
 
-        // Yıldız efekti
         function sparkleEffect() {
             for (let i = 0; i < 50; i++) {
                 const star = document.createElement("div");
-                star.classList.add("sparkle-star"); // CSS sınıfı eklendi
+                star.classList.add("sparkle-star");
                 star.style.position = "fixed";
                 star.style.top = Math.random() * 100 + "vh";
                 star.style.left = Math.random() * 100 + "vw";
@@ -483,11 +574,10 @@
             }
         }
 
-        // Yağmur efekti (fonksiyon adı düzeltildi: RainEffect)
         function RainEffect() {
             for (let i = 0; i < 30; i++) {
                 const drop = document.createElement("div");
-                drop.classList.add("rain-drop"); // CSS sınıfı eklendi
+                drop.classList.add("rain-drop");
                 drop.style.position = "fixed";
                 drop.style.top = "-10px";
                 drop.style.left = Math.random() * 100 + "vw";
